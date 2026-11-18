@@ -1,81 +1,97 @@
 <template>
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 transition-shadow">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <!-- Logo / Brand -->
-        <NuxtLink to="/" class="flex items-center gap-3 group focus:outline-none">
-          <div class="w-10 h-10 rounded-full overflow-hidden ring-2 ring-indigo-500/30 group-hover:ring-indigo-500 transition-all duration-300 shadow-sm flex items-center justify-center bg-indigo-50">
+  <header class="sticky top-0 z-40 bg-[#0f1923]/95 backdrop-blur-md border-b-2 border-[#2c3e50] shadow-[0_4px_25px_rgba(0,0,0,0.6)]">
+    <!-- Top thin accent line in Valorant Red -->
+    <div class="h-0.5 w-full bg-gradient-to-r from-transparent via-[#ff4655] to-transparent"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-18">
+        
+        <!-- Brand / Agent Identity -->
+        <NuxtLink to="/" class="flex items-center gap-3.5 group focus:outline-none">
+          <!-- Valorant-styled Agent Avatar Box with Cut Corners -->
+          <div class="relative w-11 h-11 bg-[#15222e] border-2 border-[#ff4655] shadow-[0_0_15px_rgba(255,70,85,0.4)] val-cut-corner p-0.5 flex items-center justify-center group-hover:scale-105 transition-all duration-300">
             <img 
               src="/berto1.jpg" 
               alt="Jobert Jan" 
-              class="w-full h-full object-cover object-top"
+              class="w-full h-full object-cover object-top filter contrast-110"
               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
             />
-            <span class="hidden font-bold text-indigo-600 text-sm tracking-wide">JJ</span>
+            <span class="hidden font-mono font-black text-sm text-[#ff4655]">JJ</span>
+            <!-- Corner red accent dot -->
+            <div class="absolute -top-1 -right-1 w-2 h-2 bg-[#ff4655]"></div>
           </div>
+
           <div class="flex flex-col">
-            <span class="font-bold text-slate-900 tracking-tight text-base group-hover:text-indigo-600 transition-colors">
-              Jobert Jan
-            </span>
-            <span class="text-xs font-medium text-slate-500">
-              Senior Web Developer
-            </span>
+            <div class="flex items-center gap-1.5">
+              <span class="text-[10px] font-mono tracking-widest text-[#ff4655] font-bold uppercase">
+                // AGENT PROTOCOL
+              </span>
+              <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            </div>
+            <div class="flex items-baseline gap-2">
+              <span class="font-black text-white text-lg tracking-wider uppercase group-hover:text-[#ff4655] transition-colors font-sans">
+                Jobert Jan
+              </span>
+              <span class="hidden sm:inline-block text-[11px] font-mono font-semibold text-[#8b97a5] uppercase">
+                [ RADIANT DEV ]
+              </span>
+            </div>
           </div>
         </NuxtLink>
 
-        <!-- Desktop Navigation Links -->
-        <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+        <!-- Desktop Navigation Menu -->
+        <nav class="hidden md:flex items-center space-x-2 lg:space-x-4">
+          <!-- 01 // HOME -->
           <NuxtLink 
             to="/" 
-            class="px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200"
-            :class="route.path === '/' ? 'text-indigo-600 bg-indigo-50/80 font-semibold shadow-xs' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'"
+            class="relative px-4 py-2 font-mono text-xs font-bold tracking-widest uppercase transition-all duration-200 group flex items-center gap-2"
+            :class="route.path === '/' ? 'text-white bg-[#15222e] border-b-2 border-[#ff4655] shadow-[0_0_15px_rgba(255,70,85,0.25)]' : 'text-[#8b97a5] hover:text-white hover:bg-[#15222e]/60'"
           >
-            <span class="flex items-center gap-1.5">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-              </svg>
-              Home
-            </span>
+            <span class="text-[10px] text-[#ff4655]">01</span>
+            <span>// HOME</span>
+            <div v-if="route.path === '/'" class="absolute -top-1 right-1 w-1.5 h-1.5 bg-[#ff4655]"></div>
           </NuxtLink>
 
+          <!-- 02 // DOSSIER (PROFILE) -->
           <NuxtLink 
             to="/profile" 
-            class="px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200"
-            :class="route.path === '/profile' ? 'text-indigo-600 bg-indigo-50/80 font-semibold shadow-xs' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'"
+            class="relative px-4 py-2 font-mono text-xs font-bold tracking-widest uppercase transition-all duration-200 group flex items-center gap-2"
+            :class="route.path === '/profile' ? 'text-white bg-[#15222e] border-b-2 border-[#ff4655] shadow-[0_0_15px_rgba(255,70,85,0.25)]' : 'text-[#8b97a5] hover:text-white hover:bg-[#15222e]/60'"
           >
-            <span class="flex items-center gap-1.5">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
-              Profile
-            </span>
+            <span class="text-[10px] text-[#ff4655]">02</span>
+            <span>// DOSSIER</span>
+            <div v-if="route.path === '/profile'" class="absolute -top-1 right-1 w-1.5 h-1.5 bg-[#ff4655]"></div>
           </NuxtLink>
 
-          <div class="h-5 w-px bg-slate-200 mx-2"></div>
+          <!-- Divider -->
+          <div class="h-6 w-px bg-[#2c3e50] mx-1"></div>
 
-          <a 
-            href="mailto:timerinserver@gmail.com" 
-            class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-900 text-white hover:bg-indigo-600 transition-colors shadow-xs"
+          <!-- 03 // CONTACT / COMMS BUTTON -->
+          <button 
+            @click="openContact"
+            type="button"
+            class="relative px-5 py-2.5 bg-[#ff4655] hover:bg-[#e03746] text-white font-mono text-xs font-black tracking-widest uppercase val-cut-btn transition-all duration-200 shadow-[0_0_20px_rgba(255,70,85,0.4)] hover:shadow-[0_0_30px_rgba(255,70,85,0.65)] hover:-translate-y-0.5 flex items-center gap-2 group cursor-pointer"
           >
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            <span class="w-2 h-2 rounded-full bg-white group-hover:animate-ping"></span>
+            <span>COMMS // CONTACT</span>
+            <svg class="w-3.5 h-3.5 ml-1 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
-            Contact
-          </a>
+          </button>
         </nav>
 
-        <!-- Mobile Menu Button -->
+        <!-- Mobile Menu Toggle Button -->
         <div class="flex md:hidden">
           <button 
             @click="isMobileMenuOpen = !isMobileMenuOpen"
             type="button" 
-            class="p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            aria-label="Toggle navigation menu"
+            class="p-2.5 bg-[#15222e] border border-[#ff4655]/50 text-white hover:bg-[#ff4655] transition-colors"
+            aria-label="Toggle navigation"
           >
             <svg v-if="!isMobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
-            <svg v-else class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg v-else class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -83,41 +99,34 @@
       </div>
 
       <!-- Mobile Navigation Drawer -->
-      <div v-show="isMobileMenuOpen" class="md:hidden py-3 border-t border-slate-100 space-y-1">
+      <div v-show="isMobileMenuOpen" class="md:hidden py-4 border-t border-[#2c3e50] space-y-2 bg-[#0f1923]">
         <NuxtLink 
           to="/" 
           @click="isMobileMenuOpen = false"
-          class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-base font-medium transition-colors"
-          :class="route.path === '/' ? 'text-indigo-600 bg-indigo-50 font-semibold' : 'text-slate-700 hover:bg-slate-100'"
+          class="flex items-center justify-between px-4 py-3 font-mono text-sm tracking-widest uppercase transition-colors"
+          :class="route.path === '/' ? 'text-white bg-[#15222e] border-l-4 border-[#ff4655]' : 'text-[#8b97a5] hover:bg-[#15222e] hover:text-white'"
         >
-          <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-          </svg>
-          Home
+          <span>01 // HOME</span>
+          <span class="text-xs text-[#ff4655]">&rarr;</span>
         </NuxtLink>
 
         <NuxtLink 
           to="/profile" 
           @click="isMobileMenuOpen = false"
-          class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-base font-medium transition-colors"
-          :class="route.path === '/profile' ? 'text-indigo-600 bg-indigo-50 font-semibold' : 'text-slate-700 hover:bg-slate-100'"
+          class="flex items-center justify-between px-4 py-3 font-mono text-sm tracking-widest uppercase transition-colors"
+          :class="route.path === '/profile' ? 'text-white bg-[#15222e] border-l-4 border-[#ff4655]' : 'text-[#8b97a5] hover:bg-[#15222e] hover:text-white'"
         >
-          <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-          </svg>
-          Profile
+          <span>02 // DOSSIER</span>
+          <span class="text-xs text-[#ff4655]">&rarr;</span>
         </NuxtLink>
 
-        <div class="pt-2">
-          <a 
-            href="mailto:timerinserver@gmail.com" 
-            class="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-indigo-600 text-white font-medium text-sm hover:bg-indigo-700 transition-colors shadow-xs"
+        <div class="pt-2 px-2">
+          <button 
+            @click="openContact(); isMobileMenuOpen = false;"
+            class="w-full py-3 bg-[#ff4655] text-white font-mono text-xs font-black tracking-widest uppercase flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(255,70,85,0.4)]"
           >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-            Contact via Email
-          </a>
+            <span>OPEN COMMS // 09383808212</span>
+          </button>
         </div>
       </div>
     </div>
@@ -130,4 +139,9 @@ import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const isMobileMenuOpen = ref(false)
+const contactModal = useState('contactModal', () => false)
+
+const openContact = () => {
+  contactModal.value = true
+}
 </script>
